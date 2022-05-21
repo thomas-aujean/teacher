@@ -12,6 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Workshop
 {
+
+    public const TYPE_LITTLE  = 'little';
+    public const TYPE_CYCLE2 = 'cycle2';
+    public const TYPE_CYCLE3 = 'cycle3';
+    public const TYPE_MIDDLE = 'middle';
+    public const TYPE_SPOKEN = 'spoken';
+
+    public const TYPES_NAMES = [
+        self::TYPE_LITTLE => "Little Ones / Les Petits",
+        self::TYPE_CYCLE2 => "Cycle 2",
+        self::TYPE_CYCLE3 => "Cycle 3",
+        self::TYPE_MIDDLE => "Middle Schol / Collège prep",
+        self::TYPE_SPOKEN => "Spoken English / Anglais parlé"
+    ];
+    
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -20,7 +36,7 @@ class Workshop
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
 
@@ -45,7 +61,7 @@ class Workshop
     private $maximum;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $enroled;
 

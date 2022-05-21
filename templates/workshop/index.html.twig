@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WorkshopController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		<div class="col">
+			<ul class="list-group">
+
+			
+
+				{% for workshop in workshops %}
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ constant('App\\Entity\\Workshop::TYPES_NAMES')[workshop.type] }}
+                    <div>
+Places dispo
+                        <span class="badge badge-primary badge-pill" style="background-color: {{ available(workshop.maximum, workshop.enroled)}};">{{ workshop.maximum - workshop.enroled }}</span>
+                    </div>
+				</li>
+				{% endfor %}
+
+			</ul>
+		</div>
+	</div>
+
+{% endblock %}
+

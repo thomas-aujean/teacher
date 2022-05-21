@@ -17,43 +17,50 @@ class ContactType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom du parent',
                 'row_attr' => [
-                    'class' => 'fv-row mb-5'
+                    'class' => 'col'
                 ],
-                'label_attr' => [
-                    'class' => 'fw-bold fs-5'
-                ],
-                'attr' => [
-                    'value' => '',
-                    'class' => 'form-control form-control-lg form-control-solid form-field'
-                ]
+            
             ])
             ->add('firstName', TextType::class, [
                 'label' => 'Prénom du parent',
                 'row_attr' => [
-                    'class' => 'fv-row mb-5'
+                    'class' => 'col'
                 ],
-                'label_attr' => [
-                    'class' => 'fw-bold fs-5'
-                ],
-                'attr' => [
-                    'value' => '',
-                    'class' => 'form-control form-control-lg form-control-solid form-field'
-                ]
+            
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email du parent',
                 'row_attr' => [
-                    'class' => 'fv-row mb-5'
+                    'class' => 'col'
                 ],
-                'label_attr' => [
-                    'class' => 'fw-bold fs-5'
-                ],
-                'attr' => [
-                    'value' => '',
-                    'class' => 'form-control form-control-lg form-control-solid form-field'
-                ]
-                ]);
             
+            ])
+            ->add('phone', TextType::class, [
+                'label' => 'Numéro de téléphone',
+                'row_attr' => [
+                    'class' => 'col'
+                ],
+            
+            ])
+            ->add('address', TextType::class, [
+                'label' => 'Adresse',
+                'row_attr' => [
+                    'class' => 'col'
+                ],
+            
+            ])
+            ->add('zipCode', TextType::class, [
+                'label' => 'Code postal',
+                'row_attr' => [
+                    'class' => 'col'
+                ],
+            ])    
+            ->add('city', TextType::class, [
+                'label' => 'Ville',
+                'row_attr' => [
+                    'class' => 'col'
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

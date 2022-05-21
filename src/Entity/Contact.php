@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=ContactRepository::class)
  */
@@ -21,36 +23,40 @@ class Contact
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message= "Merci de renseigner votre nom")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message= "Merci de renseigner votre prénom")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message= "Merci de renseigner votre email")
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $address;
+    private ?string $address;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $zipCode;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message= "Merci de renseigner votre numéro de téléphone")
      */
     private $phone;
 
@@ -58,6 +64,11 @@ class Contact
      * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="contact")
      */
     private $inscriptions;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $message;
 
     public function __construct()
     {
@@ -110,7 +121,7 @@ class Contact
         return $this->address;
     }
 
-    public function setAddress(string $address): self
+    public function setAddress(?string $address): self
     {
         $this->address = $address;
 
@@ -179,6 +190,18 @@ class Contact
                 $inscription->setContact(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMessage(): ?string
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?string $message): self
+    {
+        $this->message = $message;
 
         return $this;
     }

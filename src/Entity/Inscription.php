@@ -39,24 +39,24 @@ class Inscription
     private $age;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $level;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $status;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $twoWeeks;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Workshop::class, inversedBy="inscriptions")
+     * @ORM\ManyToOne(targetEntity=WorkshopChoice::class, inversedBy="inscriptions")
      */
-    private $workshop;
+    private $workshopChoice;
 
     /**
      * @ORM\ManyToOne(targetEntity=Contact::class, inversedBy="inscriptions")
@@ -152,14 +152,14 @@ class Inscription
         return $this;
     }
 
-    public function getWorkshop(): ?Workshop
+    public function getWorkshopChoice(): ?WorkshopChoice
     {
-        return $this->workshop;
+        return $this->workshopChoice;
     }
 
-    public function setWorkshop(?Workshop $workshop): self
+    public function setWorkshopChoice(?WorkshopChoice $workshopChoice): self
     {
-        $this->workshop = $workshop;
+        $this->workshopChoice = $workshopChoice;
 
         return $this;
     }

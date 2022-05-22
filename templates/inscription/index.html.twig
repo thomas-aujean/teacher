@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InscriptionController!
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col">
+
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nom de l'enfant</th>
+						<th scope="col">Prénom</th>
+						<th scope="col">Atelier souhaité</th>
+						<th scope="col">Nom du parent</th>
+						<th scope="col">Prénom du parent</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for inscription in inscriptions %}
+                <tr>
+						<td>{{inscription.name}}</td>
+						<td>{{inscription.firstName}}</td>
+						<td>{{displayWorkshop(inscription.workshopChoice)|raw}}</td>
+						<td>{{inscription.contact.name}}</td>
+						<td>{{inscription.contact.firstName}}</td>
+                        <td>
+                        valider
+                        <br>
+                        supprimer
+                        </td>
+                </tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
+

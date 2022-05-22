@@ -23,7 +23,7 @@ class Workshop
         self::TYPE_LITTLE => "Little Ones / Les Petits",
         self::TYPE_CYCLE2 => "Cycle 2",
         self::TYPE_CYCLE3 => "Cycle 3",
-        self::TYPE_MIDDLE => "Middle Schol / Collège prep",
+        self::TYPE_MIDDLE => "Middle School / Collège prep",
         self::TYPE_SPOKEN => "Spoken English / Anglais parlé"
     ];
     
@@ -65,14 +65,18 @@ class Workshop
      */
     private $enroled;
 
+  
+
     /**
-     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="workshop")
+     * @ORM\ManyToMany(targetEntity=WorkshopChoice::class, mappedBy="workshop")
      */
-    private $inscriptions;
+    private $workshopChoices;
+
 
     public function __construct()
     {
-        $this->inscriptions = new ArrayCollection();
+        $this->workshopChoices = new ArrayCollection();
+        $this->enroled = 0;
     }
 
     public function getId(): ?int
@@ -152,33 +156,33 @@ class Workshop
         return $this;
     }
 
+
     /**
-     * @return Collection<int, Inscription>
+     * @return Collection<int, WorkshopChoice>
      */
-    public function getInscriptions(): Collection
+    public function getWorkshopChoices(): Collection
     {
-        return $this->inscriptions;
+        return $this->workshopChoices;
     }
 
-    public function addInscription(Inscription $inscription): self
+    public function addWorkshopChoice(WorkshopChoice $workshopChoice): self
     {
-        if (!$this->inscriptions->contains($inscription)) {
-            $this->inscriptions[] = $inscription;
-            $inscription->setWorkshop($this);
+        if (!$this->workshopChoices->contains($workshopChoice)) {
+            $this->workshopChoices[] = $workshopChoice;
+            $workshopChoice->addWorkshop($this);
         }
 
         return $this;
     }
 
-    public function removeInscription(Inscription $inscription): self
+    public function removeWorkshopChoice(WorkshopChoice $workshopChoice): self
     {
-        if ($this->inscriptions->removeElement($inscription)) {
-            // set the owning side to null (unless already changed)
-            if ($inscription->getWorkshop() === $this) {
-                $inscription->setWorkshop(null);
-            }
+        if ($this->workshopChoices->removeElement($workshopChoice)) {
+            $workshopChoice->removeWorkshop($this);
         }
 
         return $this;
     }
+
+ 
 }

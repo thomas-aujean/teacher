@@ -39,6 +39,18 @@ class WorkshopRepository extends ServiceEntityRepository
         }
     }
 
+
+
+
+    public function findAvailables()
+    {
+            return $this->createQueryBuilder('w')
+            ->select('w.type')
+           ->andWhere('w.enroled < w.maximum')
+           ->distinct('w.type')
+           ->orderBy('w.start', 'ASC');
+    }
+    
 //    /**
 //     * @return Workshop[] Returns an array of Workshop objects
 //     */

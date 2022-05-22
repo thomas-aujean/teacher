@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WorkshopChoiceController!{% endblock %}
+
+{% block body %}
+
+
+
+	<div class="row">
+		<div class="col">
+
+			{% if app.user %}
+				<div class="text-right my-2">
+					<a href="{{ path('app_workshop_choice_add')}}" class="text-right btn btn-primary">Ajouter une option</a>
+				</div>
+			{% endif %}
+
+			<ul class="list-group mt-3">
+
+				{% for workshopChoice in workshopChoices %}
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ displayWorkshop(workshopChoice)}}
+					
+					</li>
+				{% endfor %}
+
+			</ul>
+		</div>
+	</div>
+
+{% endblock %}

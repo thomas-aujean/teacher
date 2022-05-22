@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}Welcome! {% endblock %}</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"
-    />
-    {# Run `composer require symfony/webpack-encore-bundle` to start using
-    Symfony UX #} {% block stylesheets %}
-    {{
+	<head>
+		<meta charset="UTF-8"/>
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"/>
+		{# Run `composer require symfony/webpack-encore-bundle` to start using
+										    Symfony UX #}
+		{% block stylesheets %}
+			{{
       encore_entry_link_tags("app")
     }}
-    {% endblock %} {% block javascripts %}
-    {{
+		{% endblock %}
+		{% block javascripts %}
+			{{
       encore_entry_script_tags("app")
     }}
-    {% endblock %}
-  </head>
-  <body>
-    <div class="container main">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-10">
-            <a class="navbar-brand" href="#">English with Annie</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="{{ path('app_home')}}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ path('app_contact')}}">Contact</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        {% block body %}{% endblock %}
-    </div>
-  </body>
-</html>
+		{% endblock %}
+	</head>
+	<body>
+		<div class="container main">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#">English with Annie</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav mr-auto" style="flex:1">
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ path('app_home')}}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_inscription')}}">Inscription</a>
+						</li>
+
+
+						<li class="nav-item">
+							<a class="nav-link" href="{{ path('app_workshop')}}">Ateliers</a>
+						</li>
+
+						{% if app.user %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_workshop_choice')}}">Options possibles</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ path('app_inscriptions')}}">Inscriptions reçues</a>
+							</li>
+						{% endif %}
+					</ul>
+					{% if app.user %}
+						<a class="navbar-text" href="{{ path('app_logout') }}">
+							Logout
+						</a>
+					{% endif %}
+
+				</div>
+			</nav>
+			{% block body %}{% endblock %}
+		</div>
+	</body>
+</html></body></html>
+

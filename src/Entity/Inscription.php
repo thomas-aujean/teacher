@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\InscriptionRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=InscriptionRepository::class)
@@ -25,16 +26,19 @@ class Inscription
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message= "Merci de renseigner le nom de l'enfant")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message= "Merci de renseigner le prénom de l'enfant")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message= "Merci de renseigner l'âge de l'enfant")
      */
     private $age;
 
@@ -59,6 +63,7 @@ class Inscription
     private $workshopChoice;
 
     /**
+     * @Assert\Valid()
      * @ORM\ManyToOne(targetEntity=Contact::class, inversedBy="inscriptions")
      */
     private $contact;

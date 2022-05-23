@@ -35,7 +35,10 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/workshop/add, roles: ROLE_USER }
+        - { path: ^/workshop/choice, roles: ROLE_USER }
         - { path: ^/inscriptions, roles: ROLE_USER }
+        - { path: ^/registration, roles: ROLE_USER }
+        - { path: ^/wwadd, roles: ROLE_USER }
 
 when@test:
     security:

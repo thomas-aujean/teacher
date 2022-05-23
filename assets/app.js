@@ -11,6 +11,42 @@ import "./scss/app.scss";
 // start the Stimulus application
 import "./bootstrap";
 
+import logoPath from '../images/back.png';
+
+
+console.log(logoPath)
+let switchFr = document.getElementById("switchFr");
+let switchEn = document.getElementById("switchEn");
+let matches = document.querySelectorAll(".translate");
+
+switchEn.onclick = function (e) {
+  matches.forEach(function (item) {
+    if (
+      item.hasAttribute("data-trad") &&
+      item.getAttribute("data-lang") == "EN"
+    ) {
+      let txt = item.innerText;
+      item.innerText = item.getAttribute("data-trad");
+      item.setAttribute("data-lang", "FR");
+      item.setAttribute("data-trad", txt);
+    }
+  });
+};
+
+switchFr.onclick = function (e) {
+  matches.forEach(function (item) {
+    if (
+      item.hasAttribute("data-trad") &&
+      item.getAttribute("data-lang") == "FR"
+    ) {
+      let txt = item.innerText;
+      item.innerText = item.getAttribute("data-trad");
+      item.setAttribute("data-lang", "EN");
+      item.setAttribute("data-trad", txt);
+    }
+  });
+};
+
 let test = document.getElementById("test");
 if (test) {
   let inscription_type = document.getElementById("inscription_type");
@@ -41,8 +77,6 @@ if (test) {
 
     let results = Object.values(result.workshops);
 
-    console.log(results);
-
     if (results.length == 0) {
       console.log("ououo");
       var opt = document.createElement("option");
@@ -60,7 +94,6 @@ if (test) {
             mainSelect.appendChild(opt);
           });
         } else {
-
           var opt = document.createElement("option");
           opt.value = workshop.id;
           opt.innerHTML = ateliers[0].label;

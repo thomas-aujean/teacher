@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="ftp.cluster031.hosting.ovh.net" id="b7c7036b-dd93-45fc-b85d-ccb0c61dfd25" port="22" customName="taecher" nameFormat="CUSTOM" username="englisq" useOpenSSHConfig="true">
+        <option name="customName" value="taecher" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

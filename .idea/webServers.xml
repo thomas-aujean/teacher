@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="babd8a46-68c5-4c72-9b98-5c56781a5a31" name="teacher" url="http://ftp.cluster031.hosting.ovh.net">
+        <fileTransfer rootFolder="/home/englisq/www" accessType="SFTP" host="ftp.cluster031.hosting.ovh.net" port="22" sshConfigId="b7c7036b-dd93-45fc-b85d-ccb0c61dfd25" sshConfig="taecher">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

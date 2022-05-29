@@ -86,4 +86,18 @@ class InscriptionController extends AbstractController
             'inscriptions' => $inscriptions,
         ]);
     }
+
+
+    /**
+     * @Route("/inscriptions-view/{id}", name="inscription_view")
+     */
+    public function view(Request $request,  Inscription $inscription): Response
+    {
+
+
+        return $this->render('inscription/view.html.twig', [
+            'inscription' => $inscription,
+            'title' => "Demande d'inscription reçue",
+        ]);
+    }
 }

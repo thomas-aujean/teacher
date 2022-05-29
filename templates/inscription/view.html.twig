@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="row mb-4">
+		<div class="col" data-url="{{ path('workshop_data') }}">
+			<h5 class="mt-5 mb-3">{{ title }}</h5>
+
+
+            <ul class="list-group">
+                <li class="list-group-item active" aria-current="true">Détail de la demande</li>
+                <li class="list-group-item">Nom de l'enfant : {{ inscription.name }}</li>
+                <li class="list-group-item">Prénom de l'enfant : {{ inscription.firstName }}</li>
+                <li class="list-group-item">Age : {{ inscription.age }}</li>
+                <li class="list-group-item">Class : {{displayWorkshop(inscription.workshopChoice)|raw}}</li>
+                <li class="list-group-item">Parent : {{ inscription.contact.name }} {{ inscription.contact.firstName }}</li>
+                <li class="list-group-item">Email : {{ inscription.contact.email }} </li>
+                <li class="list-group-item">Phone : {{ inscription.contact.phone }} </li>
+                <li class="list-group-item">
+                    Adresse : {{ inscription.contact.address }} <br>
+                    {{ inscription.contact.zipCode }} {{ inscription.contact.city }}
+                </li>
+            </ul>
+
+            <div class="text-right mt-3" style="text-align: right">
+                <a class="text-right btn btn-warning" href="{{ path('app_inscriptions') }}">Retour</a>
+
+            </div>
+		</div>
+	</div>
+
+{# 
+other key : 6LcLwA0gAAAAAL9rNbiNAKd-cmwj9JspROOfDL7N 
+#}
+
+{% endblock %}
+
+{% block script %}
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+     <script>
+       function onSubmit(token) {
+         document.getElementById("form_inscription").submit();
+       }
+     </script>
+{% endblock %}

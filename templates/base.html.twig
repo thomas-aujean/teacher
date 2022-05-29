@@ -1,90 +1,100 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8"/>
-		<title>
-			{% block title %}Welcome!
-			{% endblock %}
-		</title>
-		<link
-		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"/>
-		{# Run `composer require symfony/webpack-encore-bundle` to start using
-														    Symfony UX #}
-		{% block stylesheets %}
-			{{
-      encore_entry_link_tags("app")
-    }}
-		{% endblock %}
-		{% block javascripts %}
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-			{{
-      encore_entry_script_tags("app")
-    }}
-		{% endblock %}
-	</head>
-	<body>
-		<div class="container-fluid main">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-				<span class="navbar-brand" style="margin-left: 15px">English with Annie</span>
-				{# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <title>
+        {% block title %}Welcome!
+        {% endblock %}
+    </title>
+    <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"/>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using
+														    Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags("app") }}
+    {% endblock %}
+    {% block javascripts %}
+
+        {{ encore_entry_script_tags("app") }}
+    {% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('app_home') }}">English with Annie</a>
+        <button id="navToggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 													<span class="navbar-toggler-icon"></span>
 												</button> #}
-				<div class="collapse navbar-collapse show" id="navbarNav">
-					<ul class="navbar-nav mr-auto" style="flex:1">
-						<li class="nav-item active">
-							<a class="nav-link" href="{{ path('app_home')}}">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_workshop')}}">Ateliers</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{{ path('app_inscription')}}">Inscription</a>
-						</li>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto" style="flex:1">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ path('app_home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_workshop') }}">Ateliers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('app_inscription') }}">Inscription</a>
+            </li>
 
 
-						{% if app.user %}
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_workshop_choice')}}">Options possibles</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="{{ path('app_inscriptions')}}">Inscriptions reçues</a>
-							</li>
-						{% endif %}
-					</ul>
-					<div style="color: hsla(0,0%,100%,.55);margin-right: 15px" >
-						<span data-lang="FR" id="switchFr" style="cursor:pointer;">FR</span>
-						/
-						<span data-lang="EN" id="switchEn" style="cursor:pointer;">EN</span>
-						{% if app.user %}
-							<a class="navbar-text" href="{{ path('app_logout') }}">
-								Logout
-							</a>
-						{% endif %}
-					</div>
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_workshop_choice') }}">Options possibles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_inscriptions') }}">Inscriptions reçues</a>
+                </li>
+            {% endif %}
+        </ul>
+        <div style="color: hsla(0,0%,100%,.55);margin-right: 15px">
+            <span data-lang="FR" id="switchFr" style="cursor:pointer;">FR</span>
+            /
+            <span data-lang="EN" id="switchEn" style="cursor:pointer;">EN</span>
+            {% if app.user %}
+                <a class="navbar-text" href="{{ path('app_logout') }}">
+                    Logout
+                </a>
+            {% endif %}
+        </div>
 
-				</div>
-			</nav>
-			{% for message in app.flashes('success') %}
-				<div class="alert alert-success">
-					{{ message }}
-				</div>
-			{% endfor %}
-			{% block body %}
+    </div>
+    </div>
+
+</nav>
 
 
 
-			{% endblock %}
-			<nav class="navbar navbar-dark bg-dark">
-				<ul style="color:white; list-style:none">
-					<li>
-						Contact  :
-					</li>
+<div class="container-fluid main">
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% block body %}
 
-					<li>Annie Alquist</li>
-					<li>alquistanglais@gmail.com</li>
-				</ul>
-			</nav>
-		</div>
-	</body>
-</html></body></html>
+
+
+    {% endblock %}
+
+</div>
+<nav class="navbar navbar-dark bg-dark">
+    <ul style="color:white; list-style:none">
+        <li>
+            Contact :
+        </li>
+
+        <li>Annie Alquist</li>
+        <li>alquistanglais@gmail.com</li>
+    </ul>
+</nav>
+</body>
+</html>
 

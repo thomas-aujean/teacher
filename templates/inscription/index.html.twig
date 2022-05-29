@@ -4,54 +4,65 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row">
-		<div class="col">
+    <div class="row">
+        <div class="col">
+
+            <div class="table-responsive">
 
 
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Nom de l'enfant</th>
-						<th scope="col">Prénom</th>
-						<th scope="col">Atelier souhaité</th>
-						<th scope="col">Nom du parent</th>
-						<th scope="col">Prénom du parent</th>
-						<th scope="col">Date de la demande</th>
-						<th scope="col">Statut</th>
-						<th scope="col">Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for inscription in inscriptions %}
-						<tr>
-							<td>{{inscription.name}}</td>
-							<td>{{inscription.firstName}}</td>
-							<td>{{displayWorkshop(inscription.workshopChoice)|raw}}</td>
-							<td>{{inscription.contact.name}}</td>
-							<td>{{inscription.contact.firstName}}</td>
-							<td>{{inscription.created.format('d/m/Y')}}</td>
-							<td>
-								<span class="badge bg-{{displayStatus(inscription.status)}}"> {{ inscription.status }}</span>
-								</td>
-							<td>
-								<a href="{{ path('inscription_validate', {id : inscription.id}) }}" class="validate">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom de l'enfant</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Atelier souhaité</th>
+                        <th scope="col">Nom du parent</th>
+                        <th scope="col">Prénom du parent</th>
+                        <th scope="col">Date de la demande</th>
+                        <th scope="col">Statut</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for inscription in inscriptions %}
+                        <tr>
+                            <td>{{ inscription.name }}</td>
+                            <td>{{ inscription.firstName }}</td>
+                            <td>{{ displayWorkshop(inscription.workshopChoice)|raw }}</td>
+                            <td>{{ inscription.contact.name }}</td>
+                            <td>{{ inscription.contact.firstName }}</td>
+                            <td>{{ inscription.created.format('d/m/Y') }}</td>
+                            <td>
+                                <span class="badge bg-{{ displayStatus(inscription.status) }}"> {{ inscription.status }}</span>
+                            </td>
+                            <td>
 
-									<svg xmlns="http://www.w3.org/2000/svg" width="20" viewbox="0 0 448 512">
-										<path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/>
-									</svg>
-								</a>
-								<a href="{{ path('inscription_delete', {id : inscription.id}) }}" class="delete">
+                                <a href="{{ path('inscription_view', {id : inscription.id}) }}">
 
-									<svg xmlns="http://www.w3.org/2000/svg" width="20" viewbox="0 0 448 512">
-										<path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z"/>
-									</svg>
-								</span>
-							</td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 512 512">
+                                        <path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"/>
+                                    </svg>
+                                </a>
+
+                                <a href="{{ path('inscription_validate', {id : inscription.id}) }}" class="validate">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" viewbox="0 0 448 512">
+                                        <path d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"/>
+                                    </svg>
+                                </a>
+                                <a href="{{ path('inscription_delete', {id : inscription.id}) }}" class="delete">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" viewbox="0 0 448 512">
+                                        <path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

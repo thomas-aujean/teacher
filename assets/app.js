@@ -11,10 +11,8 @@ import "./scss/app.scss";
 // start the Stimulus application
 import "./bootstrap";
 
-import logoPath from '../images/back.png';
+import logoPath from "../images/back.png";
 
-
-console.log(logoPath)
 let switchFr = document.getElementById("switchFr");
 let switchEn = document.getElementById("switchEn");
 let matches = document.querySelectorAll(".translate");
@@ -60,8 +58,6 @@ if (test) {
   };
 
   async function ajaxUpdate(data, url) {
-    console.log(data);
-
     removeOptions(mainSelect);
 
     const response = await fetch(url, {
@@ -122,6 +118,28 @@ if (test) {
       selectElement.remove(i);
     }
   }
+}
 
-  // using the function:
+let validates = document.getElementsByClassName("validate");
+let deletes = document.getElementsByClassName("delete");
+
+
+for (var i = 0; i < validates.length; i++) {
+  validates[i].addEventListener("click",  function (e) {
+    let result = confirm("Are you sure you wanna confirm this inscription Boo ?");
+    if (result != true) {
+      e.preventDefault();
+      
+    } 
+  });
+}
+
+
+for (var i = 0; i < deletes.length; i++) {
+  deletes[i].addEventListener("click",  function (e) {
+    let result = confirm("Are you sure you wanna delete this inscription Boo ?");
+    if (result != true) {
+      e.preventDefault();
+    } 
+  });
 }

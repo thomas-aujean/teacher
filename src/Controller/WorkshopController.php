@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class WorkshopController extends AbstractController
 {
     /**
-     * @Route("/", name="app_workshop")
+     * @Route("", name="app_workshop")
      */
     public function index(WorkshopRepository $workshopRepository): Response
     {

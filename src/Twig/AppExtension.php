@@ -4,6 +4,7 @@
 namespace App\Twig;
 
 use App\Entity\Customer;
+use App\Entity\Inscription;
 use App\Entity\User;
 use App\Entity\WorkshopChoice;
 use Twig\Extension\AbstractExtension;
@@ -24,6 +25,7 @@ class AppExtension extends AbstractExtension
         return [
             new TwigFunction('available', [$this, 'available']),
             new TwigFunction('displayWorkshop', [$this, 'displayWorkshop']),
+            new TwigFunction('displayStatus', [$this, 'displayStatus']),
         ];
     }
 
@@ -70,6 +72,15 @@ class AppExtension extends AbstractExtension
                  Du {$workshopChoice->getFirstWorkshop()->getStart()->format('d/m/Y')} au {$workshopChoice->getFirstWorkshop()->getEnd()->format('d/m/Y')}
             HTML;
             
+        }
+    }
+
+    public function displayStatus(string $status)
+    {
+        if ($status == Inscription::STATUS_VALIDATED){
+            return 'success';
+        } else{
+            return 'warning';
         }
     }
 

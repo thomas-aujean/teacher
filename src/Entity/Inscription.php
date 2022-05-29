@@ -15,6 +15,7 @@ class Inscription
 
     public const STATUS_PENDING = 'pending';
     public const STATUS_VALIDATED = 'validated';
+    public const STATUS_REMOVED = 'removed';
 
 
     /**

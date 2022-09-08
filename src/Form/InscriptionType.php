@@ -46,29 +46,29 @@ class InscriptionType extends AbstractType
                     "Little Ones" => Workshop::TYPE_LITTLE,
                     "Cycle 2" => Workshop::TYPE_CYCLE2,
                     "Cycle 3" => Workshop::TYPE_CYCLE3,
-                    "Middle School" => Workshop::TYPE_MIDDLE,
+//                    "Middle School" => Workshop::TYPE_MIDDLE,
                     "Spoken English" => Workshop::TYPE_SPOKEN,
+                    "Adults" => Workshop::TYPE_ADULTS,
+                    "Excursions" => Workshop::TYPE_EXCURSION,
                 ]
             ])
-            ->add('weeks', ChoiceType::class, [
-                'label' => 'Durée',
-                'mapped' => false,
-                'required' => true,
-                'empty_data' => null,
-                'choices' => [
-                    // "Merci de choisir une date" => null,
-                    "1 semaine" => 1,
-                    "2 semaines" => 2,
-                ]
-            ])
+//            ->add('weeks', ChoiceType::class, [
+//                'label' => 'Durée',
+//                'mapped' => false,
+//                'required' => true,
+//                'empty_data' => null,
+//                'choices' => [
+//                    // "Merci de choisir une date" => null,
+//                    "1 semaine" => 1,
+//                    "2 semaines" => 2,
+//                ]
+//            ])
 
             ->add('workshopChoice', EntityType::class, [
                 'label' => 'Atelier',
                 'class' => WorkshopChoice::class,
                 'choice_label' => function (WorkshopChoice $workshopChoice) {
-
                     if (count($workshopChoice->getWorkshops()) > 1) {
-
                         return 'Deux semaines - ' . Workshop::TYPES_NAMES[($workshopChoice->getFirstWorkshop()->getType())];
                     } else {
                         return Workshop::TYPES_NAMES[($workshopChoice->getFirstWorkshop()->getType())] . ' - Du ' . $workshopChoice->getFirstWorkshop()->getStart()->format('d/m/Y') . ' au ' . $workshopChoice->getFirstWorkshop()->getEnd()->format('d/m/Y');

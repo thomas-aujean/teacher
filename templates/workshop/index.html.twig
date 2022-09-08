@@ -15,164 +15,99 @@
 				</div>
 			{% endif %}
 
-			{# <ul class="list-group mt-3">
-																		
-																						{% for workshop in workshops %}
-																							<li class="list-group-item d-flex justify-content-between align-items-center">
-																								{{ constant('App\\Entity\\Workshop::TYPES_NAMES')[workshop.type] }}
-																								: du
-																								{{ workshop.getStart().format('d/m/Y')}}
-																								au
-																								{{ workshop.getEnd().format('d/m/Y')}}
-																								<div>
-																									Places dispo
-																									<span class="badge badge-primary badge-pill" style="background-color: {{ available(workshop.maximum, workshop.enroled)}};">{{ workshop.maximum - workshop.enroled }}</span>
-																								</div>
-																							</li>
-																						{% endfor %}
-																		
-																					</ul> #}
 
-			<h5 class="translate mb-4" data-lang="EN" data-trad="5 classes offered (50 minutes per class):">5 cours proposés (50 minutes par cours) :</h5>
 
+			<h5 class="translate mb-4" data-lang="EN" data-trad="Fall 2022 Offerings">Offres d'automne 2022 :</h5>
+
+			<p class="translate" data-lang="EN" data-trad="The following ateliers will be held at the library in Le Perreux-Sur-Marne (TBD) during the week of October 31st through November 4th. If interested, please fill out the enrollment form online and you will receive details via email. Please be aware, the courses will only be confirmed if there are a minimum of 3 students enrolled.">
+				Les ateliers suivants auront lieu à la bibliothèque du Perreux-Sur-Marne (lieu provisoire) durant la semaine du 31 octobre au 4 novembre. Si vous êtes
+				intéressé, veuillez remplir le formulaire d'inscription en ligne et vous recevrez les détails par e-mail.
+				<br>
+				Les ateliers ne seront confirmés que s'il y a un minimum de 3 élèves inscrits.
+			</p>
 
 			<ol>
-				<li class="translate mb-3" data-lang="EN" data-trad="Spoken English: A class devoted entirely to improving your child’s confidence in their speaking skills. We will focus on vocabulary acquisition, oral expression, and correct pronunciation through diverse activities, such as: dialogues, role-plays, interviews, and	conversation practice, as well as coaching and encouragement in expressing and sharing opinions using an appropriate lexicon.
-																																		* This class is only available for students entering CM2 and 6éme">
-					Anglais Parlé : Un cours entièrement consacré à l'amélioration de la confiance de votre enfant dans
-																																		ses compétences orales. Nous nous concentrerons sur l'acquisition du vocabulaire, l'expression orale
-																																		et la prononciation correcte à travers diverses activités: des dialogues, des jeux de rôle, des entretiens
-																																		et des pratiques de conversation, ainsi que du coaching et des encouragements à exprimer et partager
-																																		ses opinions en utilisant un lexique approprié.
+				<li class="translate mb-3" data-lang="EN" data-trad="Spoken English: A class devoted entirely to improving your confidence in your speaking skills. We will focus on vocabulary acquisition, oral expression, and correct pronunciation through diverse activities, such as: dialogues, role-plays, interviews, and conversation practice, as well as coaching and encouragement in expressing and sharing opinions using an appropriate lexicon.
+* Intermediate level required, B1/B2
+Check level with this test: https://www.languagelevel.com/english/index.php">
+					Anglais Parlé : Un cours entièrement consacré à l'amélioration de la confiance de votre enfant dans ses
+					compétences orales. Nous nous concentrerons sur l'acquisition du vocabulaire, l'expression orale et la
+					prononciation correcte à travers diverses activités: des dialogues, des jeux de rôle, des entretiens et des
+					pratiques de conversation, ainsi que du coaching et des encouragements à exprimer et partager ses
+					opinions en utilisant un lexique approprié.
 					<br>
-					* Ce cours est réservé aux élèves entrant en CM2 et 6éme
+					* Niveau intermédiaire requis, B1/B2 <br>
+					Vérifiez le niveau avec ce test : https://www.languagelevel.com/english/index.php
 				</li>
-				<li class="translate mb-3" data-lang="EN" data-trad="Ready for middle-school! : This class will give CM2 graduates a sneak-peak of the notions they will learn in 6éme and beyond, as well as learning studying and note-taking methodology they will need in middle school. We will work on more advanced-level grammatical notions. Students will feel confident and excited to start middle-school!
-																																					* This class is only for students who have finished CM2 and are entering 6éme">
-					Prêt pour le collège ! : Ce cours donnera aux diplômés du CM2 un aperçu des notions qu'ils
-																																apprendront en 6ème et au-delà, ainsi que l'apprentissage de la méthodologie d'étude et de prise de
-																																notes dont ils auront besoin au collège. Nous travaillerons sur des notions grammaticales de niveau
-																																plus avancé. Les élèves se sentiront confiants et enthousiastes à l'idée de commencer le collège !
+				<li class="translate mb-3" data-lang="EN" data-trad="Cycle 3 (CM1 or CM2) : This class will reinforce lexical and grammatical notions previously acquired, revise and build upon vocabulary, and challenge students with grammatical notions to come. We will work the 4 competences required for learning a language: oral comprehension, oral expression, written comprehension and written expression.
+* Course reserved for CM1, CM2, and 6émé students">
+					Cycle 3 (CM1 ou CM2) : Ce cours permettra de renforcer les notions lexicales et grammaticales
+					acquises antérieurement, de réviser et d'enrichir le vocabulaire, et d'interpeller les élèves sur les
+					notions grammaticales à venir. Nous travaillerons les 4 compétences nécessaires à l'apprentissage
+					d'une langue : compréhension orale, expression orale, compréhension écrite et expression écrite.
 					<br>
-					* Ce cours est réservé aux élèves ayant terminé le CM2 et entrant en 6ème
+					* Cours réservé aux élèves de CM1, CM2 et
+					6éme
+				</li>
+				<li class="translate mb-3" data-lang="EN" data-trad="Cycle 2 (CP, CE1 or CE2) : As with the class above, this class will reinforce notions previously acquired, revise and build upon vocabulary. I will also give students a preview of some of the more advanced grammatical notions they will be learning in cycle 3. We will work the 4 competences required for learning a language: oral comprehension, oral expression, written comprehension and written expression in a relaxed, playful manner.
+* Course reserved for CP, CE1, and CE2 students">
+					Cycle 2 (CP, CE1 ou CE2) : Comme le cours précédent, ce cours permettra de renforcer les notions
+					précédemment acquises, de réviser et d'enrichir le vocabulaire. Je donnerai également aux élèves un
+					aperçu de quelques notions grammaticales plus poussées qu'ils apprendront au cycle 3. Nous
+					travaillerons les 4 compétences nécessaires à l'apprentissage d'une langue : compréhension orale,
+
+					expression orale, compréhension écrite et expression écrite dans une ambiance détendue, manière
+					ludique.
+					<br>
+					* Cours réservé aux élèves de CP, CE1 et CE2
 				</li>
 
-				<li class="translate mb-3" data-lang="EN" data-trad="Entering Cycle 3 (CM1 or CM2 in September 2022) : In week one, this class will reinforce notions learned in the previous school year, revise and build upon vocabulary. In week two, we will preview the notions and vocabulary your child will learn in the coming year. In both weeks we will work the 4 competences required for learning a language: oral comprehension, oral expression, written comprehension and written expression.
-																																		* This class is only for students who will be starting in CM1 or CM2 in September 2022">
-					Rentrée Cycle 3 (CM1 ou CM2 en septembre 2022) : Au cours de la première semaine, ce cours
-																														renforcera les notions apprises au cours de l'année scolaire précédente, révisera et développera le
-																														vocabulaire. Au cours de la deuxième semaine, nous travaillerons sur les notions et le vocabulaire
-																														que votre enfant apprendra au cours de l'année à venir. Durant les deux
-																														semaines nous travaillerons 4 compétences données par le ministère de l'éducation nationale :
-																														écouter et comprendre, parler en continu, réagir et dialoguer et découvrir les aspects culturels de l'anglais.
+				<li class="translate mb-3" data-lang="EN" data-trad="Little Ones : Play-based activities such as English songs, games, stories, and vocabulary building exercises in a complete English immersion atmosphere. (Plus a thorough worksheet of all activities/resources used in class so that you may continue practicing at home!)
+* Course reserved for MS + GS students">
+					Des Petits : Des activités ludiques telles que des chansons en anglais, des jeux, des histoires et des
+					exercices de renforcement du vocabulaire dans une atmosphère d'immersion complète en anglais.
+					(Plus, une fiche pour les parents complète de toutes les activités/ressources utilisées en classe afin que
+					vous puissiez continuer à pratiquer à la maison !)
 					<br>
-					* Ce cours est réservé aux élèves qui entrent en CM1 ou CM2 en septembre 2022</li>
-				<li class="translate mb-3" data-lang="EN" data-trad="Entering Cycle 2 (CP, CE1 or CE2 in September 2022) : As with the class above, in week one this class will reinforce notions learned in the previous school year, revise and build upon vocabulary. In week two, we will preview the notions and vocabulary your child will learn in the coming year. In both weeks we will work the 4 competences required for learning a language: oral comprehension, oral expression, written comprehension and written expression.
-																																		* This class is only for students who will be starting in CP, CE1 or CE2 in September 2022">
-					Rentrée Cycle 2 (CP, CE1 ou CE2 en septembre 2022) : Comme pour le cours ci-dessus, au cours de
-																														la première semaine, ce cours renforcera les notions apprises au cours de l'année scolaire précédente,
-																														révisera et développera le vocabulaire. Au cours de la deuxième semaine, nous travaillerons sur les
-																														notions et le vocabulaire que votre enfant apprendra au cours de l'année à venir. Durant les deux
-																														semaines nous travaillerons 4 compétences données par le ministère de l'éducation nationale :
-																														comprendre l'oral, s'exprimer oralement en continu, prendre part à une conversation, découvrir quelques aspects culturels de l'anglais.
-					<br>
-					* Ce cours est réservé aux élèves qui entrent en CP, CE1 ou CE2 en septembre 2022
+					* Cours réservé aux élèves de MS + GS
 				</li>
-				<li class="translate mb-3" data-lang="EN" data-trad="Little Ones : Play-based activities such as English songs, games, and vocabulary building exercises for children starting MS + GS in September 2022 - in a complete English immersion atmosphere.
-																																		* This class is only for children who will be starting MS or GS in September 2022">
-					Les petits : Des activités ludiques telles que des comptines en anglais, des jeux et des activités de renforcement
-																														du vocabulaire pour les enfants commençant MS + GS en septembre 2022 - dans une atmosphère
-																														d'immersion bienveillante en anglais.
-					<br>
-					* Ce cours est réservé aux enfants entrant en MS ou GS en septembre 2022
+				<li class="translate mb-3" data-lang="EN" data-trad="Adults : ages 18+. For anyone looking to improve their everyday English, be it for travel, work, socializing, school, etc. A curriculum will be tailor-made according to the levels/desires of those enrolled.">
+					Adultes : 18 ans et plus. Pour tous ceux qui cherchent à améliorer leur anglais quotidien, que ce soit
+					pour les voyages, le travail, la socialisation, l’école, etc. Un cursus sera élaboré sur mesure en fonction
+					des niveaux/envies des inscrits
 				</li>
+				<li class="translate mb-3" data-lang="EN" data-trad="Individual lessons/Homework help: I will work individually with your child to help them with their homework and school projects in English. I will ensure their understanding of the notions they are learning in school. Please email me directly to inquire availability and pricing.">
+					Cours individuels/Aide aux devoirs : Je travaillerai individuellement avec votre enfant pour l'aider
+					dans ses devoirs et projets scolaires en anglais. Je m'assurerai de leur compréhension des notions qu'ils
+					apprennent à l’école. écrivez-moi directement pour demander la disponibilité et le tarif.
+				</li>
+				<li class="translate mb-3" data-lang="EN" data-trad="I propose to take your child for a 4 hour cultural excursion to a kid-friendly museum in Paris and lunch where I will speak to them uniquely in English throughout the day. This will give your child the opportunity to hear native English in a real-world setting, and practice responding in English in practical situations. We would meet before the trip to learn how to follow basic instructions and commands in English (ex. “Wait”, “stop”, “hold my hand”, etc.)">
+					Je vous propose d'emmener votre enfant pour une excursion culturelle de 4 heures dans un musée kid-
+					friendly à Paris et déjeuner où je lui parlerai uniquement en anglais tout au long de la journée. Cela
+
+					donnera à votre enfant l'opportunité d'entendre l'anglais natif dans un environnement réel et de
+					s'entraîner à répondre en anglais dans des situations pratiques. Nous nous rencontrions avant le
+					voyage pour apprendre à suivre les instructions et commandes de base en anglais (ex. "Wait", “stop",
+					“hold my hand”, etc.)
+				</li>
+
+
 			</ol>
 
-			<div class="mt-5">
-				<h5 class="mb-3">Dates:</h5>
-				<p class="translate mb-3" data-lang="EN" data-trad="Week 1: July 11, 12, 13, 14, 15">
-					Semaine 1 : 11, 12, 13, 14, 15 juillet
-				</p>
-				<p class="translate mb-3" data-lang="EN" data-trad="Week 2: July 18, 19, 20, 21, 22">
-					Semaine 2 : 18, 19, 20, 21, 22 juillet
-				</p>
-				<p class="translate mb-3" data-lang="EN" data-trad="Week 1: Aug 15, 16, 17, 18, 19">
-					Semaine 1 : 15, 16, 17, 18, 19 août
-				</p>
-				<p class="translate mb-3" data-lang="EN" data-trad="Week 2: Aug 22, 23, 24, 25, 26">
-					Semaine 2 : 22, 23, 24, 25, 26 août
-				</p>
 
-
-				<table class="table my-5  table-striped">
-					<thead>
-						<tr>
-							<th scope="col">Workshops</th>
-							<th scope="col">Lundi</th>
-							<th scope="col">Mardi</th>
-							<th scope="col">Mercredi</th>
-							<th scope="col">Jeudi</th>
-							<th scope="col">Vendredi</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">Spoken English</th>
-							<td>14h - 14h50</td>
-							<td>14h - 14h50</td>
-							<td>14h - 14h50</td>
-							<td>14h - 14h50</td>
-							<td>14h - 14h50</td>
-						</tr>
-						<tr>
-							<th scope="row">Middle School</th>
-							<td>13h - 13h50</td>
-							<td>13h - 13h50</td>
-							<td>13h - 13h50</td>
-							<td>13h - 13h50</td>
-							<td>13h - 13h50</td>
-						</tr>
-						<tr>
-							<th scope="row">Cycle 3</th>
-							<td>11h - 11h50</td>
-							<td>11h - 11h50</td>
-							<td>11h - 11h50</td>
-							<td>11h - 11h50</td>
-							<td>11h - 11h50</td>
-						</tr>
-						<tr>
-							<th scope="row">Cycle 2</th>
-							<td>10h - 10h50</td>
-							<td>10h - 10h50</td>
-							<td>10h - 10h50</td>
-							<td>10h - 10h50</td>
-							<td>10h - 10h50</td>
-						</tr>
-						<tr>
-							<th scope="row">Little Ones</th>
-							<td>9h - 9h50</td>
-							<td>9h - 9h50</td>
-							<td>9h - 9h50</td>
-							<td>9h - 9h50</td>
-							<td>9h - 9h50</td>
-						</tr>
-					</tbody>
-				</table>
+			<p class="translate" data-lang="EN" data-trad="If this sounds interesting to you and your child, please leave your email address below and I will contact you via email with details for the next excursion!">
+				Si cela vous intéresse, veuillez laisser votre adresse e-mail ci-dessous et je vous contacterai
+				par e-mail avec les détails de la prochaine excursion !
+			</p>
 
 				<h5 class="translate mb-3" data-lang="EN" data-trad="Pricing">Tarifs</h5>
-				<p class="translate" data-lang="EN" data-trad="1 week progression (5 days total, week 1 or 2) : 85 euros">
-				Progression 1 semaine - (5 jours au total, soit semaine 1 ou 2) : 85 euros				
-				</p>
-				<p class="translate mb-3" data-lang="EN" data-trad="2 week progression (10 days total, both weeks) : 150 euros">
-				Progression 2 semaines - (10 jours au total, soit 2 semaines) : 150 euros				
+				<p class="translate" data-lang="EN" data-trad="25 euros/course or 100 euros/5 days
+* except individual lessons and excursions. Email directly for pricing.">
+					25 euros/cours or 100 euros/5 jours
+					<br>
+					* à l'exception des cours individuels et des excursions. Merci de m'envoyer un email pour les tarifs.
 				</p>
 
-				<p class="translate" data-lang="EN" data-trad="Drop-in classes available (if space allows) for Spoken English and Little Ones classes (contact me via email to check availability 24 hours in advance) : 20 euros / class">
-Cours libres disponibles (si l'espace le permet) pour les cours d'anglais parlé et les cours
-Little Ones (contactez-moi via e-mail 24 heures à l'avance pour vérifier la disponibilité) : 20
-euros / cours
-</p>
-			</div>
 
 		</div>
 

@@ -54,7 +54,10 @@ class WorkshopChoiceController extends AbstractController
 
         $data = json_decode($request->getContent(), null, 512, JSON_THROW_ON_ERROR);
 
-       $workshops = $workshopChoiceRepository->findWorkShopsByFilter($data->type, $data->weeks); 
+       $workshops = $workshopChoiceRepository->findWorkShopsByFilter(
+           $data->type
+//           , $data->weeks
+       );
 
 
         return new JsonResponse([

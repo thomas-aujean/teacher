@@ -17,14 +17,18 @@ class Workshop
     public const TYPE_CYCLE2 = 'cycle2';
     public const TYPE_CYCLE3 = 'cycle3';
     public const TYPE_MIDDLE = 'middle';
+    public const TYPE_ADULTS = 'adults';
     public const TYPE_SPOKEN = 'spoken';
+    public const TYPE_EXCURSION = 'excursion';
 
     public const TYPES_NAMES = [
         self::TYPE_LITTLE => "Little Ones / Les Petits",
         self::TYPE_CYCLE2 => "Cycle 2",
         self::TYPE_CYCLE3 => "Cycle 3",
         self::TYPE_MIDDLE => "Middle School / Collège prep",
-        self::TYPE_SPOKEN => "Spoken English / Anglais parlé"
+        self::TYPE_SPOKEN => "Spoken English / Anglais parlé",
+        self::TYPE_ADULTS => "Adults / Adultes",
+        self::TYPE_EXCURSION => "Excursions"
     ];
     
 

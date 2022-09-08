@@ -65,7 +65,7 @@ if (test) {
 
     let datas = {
         type: inscription_type.value,
-        weeks: inscription_weeks.value,
+        // weeks: inscription_weeks.value,
     };
 
     async function ajaxUpdate(data, url) {
@@ -86,26 +86,27 @@ if (test) {
 
         if (results.length == 0) {
             console.log("ououo");
-            var opt = document.createElement("option");
+            let opt = document.createElement("option");
             opt.value = null;
             opt.innerHTML = "Il n'y a pas d'ateliers correspondant à votre recherche";
             mainSelect.appendChild(opt);
         } else {
             results.forEach(function (workshop) {
                 let ateliers = Object.values(workshop.workshops);
-                if (ateliers.length == 1) {
-                    ateliers.forEach(function (w) {
-                        var opt = document.createElement("option");
-                        opt.value = workshop.id;
-                        opt.innerHTML = w.label;
-                        mainSelect.appendChild(opt);
-                    });
-                } else {
-                    var opt = document.createElement("option");
+                // if (ateliers.length == 1) {
+                //     ateliers.forEach(function (w) {
+                //         var opt = document.createElement("option");
+                //         opt.value = workshop.id;
+                //         opt.innerHTML = w.label;
+                //         mainSelect.appendChild(opt);
+                //     });
+                // } else {
+
+                    let opt = document.createElement("option");
                     opt.value = workshop.id;
                     opt.innerHTML = ateliers[0].label;
                     mainSelect.appendChild(opt);
-                }
+                // }
             });
         }
     }
@@ -117,13 +118,13 @@ if (test) {
         ajaxUpdate(datas, url);
     };
 
-    inscription_weeks.onchange = function (e) {
-        datas.weeks = this.value;
-        ajaxUpdate(datas, url);
-    };
+    // inscription_weeks.onchange = function (e) {
+    //     datas.weeks = this.value;
+    //     ajaxUpdate(datas, url);
+    // };
 
     function removeOptions(selectElement) {
-        var i,
+        let i,
             L = selectElement.options.length - 1;
         for (i = L; i >= 0; i--) {
             selectElement.remove(i);

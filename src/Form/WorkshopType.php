@@ -21,8 +21,10 @@ class WorkshopType extends AbstractType
                     "Little Ones" => Workshop::TYPE_LITTLE,
                     "Cycle 2" => Workshop::TYPE_CYCLE2,
                     "Cycle 3" => Workshop::TYPE_CYCLE3,
-                    "Middle School" => Workshop::TYPE_MIDDLE,
+//                    "Middle School" => Workshop::TYPE_MIDDLE,
                     "Spoken English" => Workshop::TYPE_SPOKEN,
+                    "Adults" => Workshop::TYPE_ADULTS,
+                    "Excursions" => Workshop::TYPE_EXCURSION,
                 ]
             ])
             ->add('start')

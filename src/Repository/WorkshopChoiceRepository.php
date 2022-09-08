@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\WorkshopChoice;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,40 +48,44 @@ class WorkshopChoiceRepository extends ServiceEntityRepository
         $query = $entityManager->createQuery(
             'SELECT wc, w
             FROM App\Entity\WorkshopChoice wc
-            LEFT JOIN wc.workshops w
+            INNER JOIN wc.workshops w
             ORDER BY 
             -- w.type DESC, 
             w.start ASC'
         );
-        // dd($query);
         return $query->getResult();
     }
 
-    public function findWorkshopsByFilter($type, $weeks)
+    public function findWorkshopsByFilter(
+        $type
+//        , $weeks
+    )
     {
         $entityManager = $this->getEntityManager();
+        $today = new DateTime();
 
         $query = $entityManager->createQuery(
             'SELECT wc, w
         FROM App\Entity\WorkshopChoice wc
         LEFT JOIN wc.workshops w
         WHERE w.type = :type
+            AND w.start > :today
         -- HAVING COUNT(w) = :weeks 
         ORDER BY 
         -- w.type DESC, 
         w.start ASC'
         )
-            ->setParameter('type', $type);
+            ->setParameter('type', $type)
+            ->setParameter('today', $today);
 
         $results = $query->getArrayResult();
 
 
         foreach ($results as $key => $result) {
-            if (count($result['workshops']) != $weeks) {
-                unset($results[$key]);
-            }
+//            if (count($result['workshops']) != $weeks) {
+//                unset($results[$key]);
+//            }
 
-     
 
             foreach ($result['workshops'] as $k => $workshop) {
                 if ($workshop['enroled'] == $workshop['maximum']) {
@@ -88,31 +93,31 @@ class WorkshopChoiceRepository extends ServiceEntityRepository
                     break;
                 }
 
-                if ($weeks == 1) {
-                    if (isset($results[$key]['workshops'][$k])){
+//                if ($weeks == 1) {
+                        if (isset($results[$key]['workshops'][$k])) {
 
-                        $remain = $results[$key]['workshops'][$k]['maximum'] - $results[$key]['workshops'][$k]['enroled'];
+                            $remain = $results[$key]['workshops'][$k]['maximum'] - $results[$key]['workshops'][$k]['enroled'];
 
-                        $results[$key]['workshops'][$k]['label'] = "Du {$workshop['start']->format('d/m/Y')} au {$workshop['end']->format('d/m/Y')} - ($remain places restantes)";
-                    }
-                } else {
-                    if (count($result['workshops']) != 2) {
-                        unset($results[$key]);
-                        break;
-                    }
-                    if (isset($results[$key]['workshops'][$k])){
-                        $month = ($workshop['start']->format('m') == '7') ? 'Juillet' : 'Aoùt';
-                     
-                        if ($k == 0){
-                            $remainFirst = $results[$key]['workshops'][$k]['maximum'] - $results[$key]['workshops'][$k]['enroled'];
-                            $results[$key]['workshops'][$k]['label'] = "Mois de $month, du {$workshop['start']->format('d/m/Y')}";
-                        } else{
-                            $remainSecond = $results[$key]['workshops'][$k]['maximum'] - $results[$key]['workshops'][$k]['enroled'];
-                            $min = min([$remainFirst, $remainSecond]);
-                            $results[$key]['workshops'][0]['label'] .= " au {$workshop['end']->format('d/m/Y')} - ($min places restantes)";
+                            $results[$key]['workshops'][$k]['label'] = "Du {$workshop['start']->format('d/m/Y')} au {$workshop['end']->format('d/m/Y')} - ($remain places restantes)";
                         }
-                    }
-                }
+//                } else {
+//                    if (count($result['workshops']) != 2) {
+//                        unset($results[$key]);
+//                        break;
+//                    }
+//                    if (isset($results[$key]['workshops'][$k])){
+//                        $month = ($workshop['start']->format('m') == '7') ? 'Juillet' : 'Aoùt';
+//
+//                        if ($k == 0){
+//                            $remainFirst = $results[$key]['workshops'][$k]['maximum'] - $results[$key]['workshops'][$k]['enroled'];
+//                            $results[$key]['workshops'][$k]['label'] = "Mois de $month, du {$workshop['start']->format('d/m/Y')}";
+//                        } else{
+//                            $remainSecond = $results[$key]['workshops'][$k]['maximum'] - $results[$key]['workshops'][$k]['enroled'];
+//                            $min = min([$remainFirst, $remainSecond]);
+//                            $results[$key]['workshops'][0]['label'] .= " au {$workshop['end']->format('d/m/Y')} - ($min places restantes)";
+//                        }
+//                    }
+//                }
             }
         }
 
